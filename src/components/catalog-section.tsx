@@ -24,7 +24,6 @@ export function CatalogSection({ products }: CatalogSectionProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeModalProduct, setActiveModalProduct] = useState<Product | null>(null);
 
-  // Filter products by search and category
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       const matchCategory =
@@ -37,7 +36,6 @@ export function CatalogSection({ products }: CatalogSectionProps) {
     });
   }, [products, selectedCategory, searchQuery]);
 
-  // Group by category when viewing "Semua" without search query
   const groupedProducts = useMemo(() => {
     if (selectedCategory !== "Semua" || searchQuery.trim() !== "") {
       return null;
@@ -64,7 +62,7 @@ export function CatalogSection({ products }: CatalogSectionProps) {
     <section id="katalog" className="py-16 sm:py-24 bg-[var(--bg)]">
       <div className="site-wrap">
         {/* Section Heading & Framing */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-6 border-b border-[var(--surface-deep)]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-6">
           <div>
             <h2 className="font-display font-bold text-[var(--ink)]">
               Katalog hidangan
@@ -110,7 +108,7 @@ export function CatalogSection({ products }: CatalogSectionProps) {
           </div>
 
           {/* Category Filter Chips */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
             {CATEGORIES.map((category) => {
               const isActive = selectedCategory === category;
               return (
@@ -118,7 +116,7 @@ export function CatalogSection({ products }: CatalogSectionProps) {
                   key={category}
                   type="button"
                   onClick={() => setSelectedCategory(category)}
-                  className={`touch-control whitespace-nowrap px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all ${
+                  className={`touch-control whitespace-nowrap px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-colors ${
                     isActive
                       ? "bg-[var(--accent)] text-[var(--accent-ink)]"
                       : "bg-[var(--bg)] text-[var(--ink)] hover:bg-[var(--surface-deep)]"
@@ -156,7 +154,7 @@ export function CatalogSection({ products }: CatalogSectionProps) {
           <div className="space-y-16">
             {groupedProducts.map((group) => (
               <div key={group.category} className="space-y-6">
-                <div className="flex items-baseline justify-between border-b border-[var(--surface)] pb-3">
+                <div className="flex items-baseline justify-between pb-3">
                   <h3 className="font-display text-2xl font-bold text-[var(--ink)]">
                     {group.category}
                   </h3>
@@ -247,25 +245,25 @@ function ProductRow({ product, onSelect, onQuickAdd }: ProductRowProps) {
           </p>
 
           {product.varian && (
-            <p className="text-[11px] font-medium text-[var(--muted)] mt-1.5 line-clamp-1">
+            <p className="text-xs font-medium text-[var(--muted)] mt-1.5 line-clamp-1">
               Varian: {product.varian.join(" · ")}
             </p>
           )}
         </div>
 
         {/* Buttons Row */}
-        <div className="flex items-center gap-2 mt-4 pt-2 border-t border-[var(--surface-deep)]/50">
+        <div className="flex items-center gap-2 mt-4 pt-2">
           <button
             type="button"
             onClick={onSelect}
-            className="touch-control px-3.5 py-1.5 rounded-full bg-[var(--bg)] text-[var(--ink)] text-xs font-semibold hover:bg-[var(--surface-deep)] transition-colors border border-[var(--surface-deep)]"
+            className="touch-control px-4 py-2 rounded-full bg-[var(--surface-deep)] text-[var(--ink)] text-xs font-semibold hover:bg-[var(--muted)] hover:text-white transition-colors"
           >
             Detail & Pesan
           </button>
           <button
             type="button"
             onClick={onQuickAdd}
-            className="touch-control px-3.5 py-1.5 rounded-full bg-[var(--ink)] text-[var(--bg)] text-xs font-semibold hover:opacity-90 transition-opacity flex items-center gap-1.5"
+            className="touch-control px-4 py-2 rounded-full bg-[var(--ink)] text-[var(--bg)] text-xs font-semibold hover:opacity-90 transition-opacity flex items-center gap-1.5"
             aria-label={`Tambah ${product.nama} ke keranjang`}
           >
             <span>+</span>
