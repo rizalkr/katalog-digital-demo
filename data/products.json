@@ -1,0 +1,151 @@
+[
+  {
+    "id": "prod-01",
+    "nama": "Ayam Bakar Rempah Taliwang (1 Ekor)",
+    "kategori": "Makanan Berat",
+    "harga": 85000,
+    "deskripsi": "Ayam kampung muda dibakar bumbu rempah cabai merah, terasi lombok, dan perasan jeruk limau segar.",
+    "foto": "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=800&q=80",
+    "varian": ["Pedas Sedang", "Pedas Pol", "Tanpa Cabai"],
+    "porsi": "Contoh: 3-4 orang"
+  },
+  {
+    "id": "prod-02",
+    "nama": "Nasi Liwet Tampah Komplit (5 Porsi)",
+    "kategori": "Makanan Berat",
+    "harga": 175000,
+    "deskripsi": "Nasi gurih daun salam serai disajikan bersama ayam suwir, cumi asin cabe ijo, telur pindang, dan lalapan.",
+    "foto": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
+    "varian": ["Ayam Ungkep Suwir", "Cumi Asin Cabe Ijo"],
+    "porsi": "Contoh: 5 porsi katering"
+  },
+  {
+    "id": "prod-03",
+    "nama": "Iga Bakar Madu Ketumbar (500g)",
+    "kategori": "Makanan Berat",
+    "harga": 115000,
+    "deskripsi": "Iga sapi pilihan dimasak empuk dengan marinasi madu hutan, ketumbar sangrai, dan kecap manis kedelai hitam.",
+    "foto": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+    "varian": ["Sambal Korek Bawang", "Sambal Matah Bali"],
+    "porsi": "Contoh: 2-3 orang"
+  },
+  {
+    "id": "prod-04",
+    "nama": "Bebek Goreng Lengkuas Rempah",
+    "kategori": "Makanan Berat",
+    "harga": 95000,
+    "deskripsi": "Bebek empuk bumbu ungkep lengkuas melimpah, digoreng renyah garing di luar dengan daging lembut beraroma.",
+    "foto": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80",
+    "varian": ["Sambal Ijo Terasi", "Sambal Bawang Matang"],
+    "porsi": "Contoh: 2 orang"
+  },
+  {
+    "id": "prod-05",
+    "nama": "Sate Lilit Ikan Tenggiri (10 Tusuk)",
+    "kategori": "Makanan Berat",
+    "harga": 65000,
+    "deskripsi": "Cincangan daging ikan tenggiri segar dipadu parutan kelapa muda, serai, daun jeruk, dan bumbu base genep Bali.",
+    "foto": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80",
+    "varian": ["Sambal Matah Segar", "Bumbu Kacang Gurih"],
+    "porsi": "Contoh: 10 tusuk"
+  },
+  {
+    "id": "prod-06",
+    "nama": "Rendang Daging Sapi Payakumbuh Vakum 500g",
+    "kategori": "Frozen",
+    "harga": 135000,
+    "deskripsi": "Olahan daging sapi empuk dimasak perlahan 8 jam dengan santan kelapa tua dan rempah kering khas Minang, tahan 6 bulan.",
+    "foto": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",
+    "varian": ["Pedas Gurih Sedang", "Pedas Tradisional Minang"],
+    "porsi": "Contoh: Kemasan beku vakum 500g"
+  },
+  {
+    "id": "prod-07",
+    "nama": "Ayam Kampung Ungkep Bumbu Kuning Beku",
+    "kategori": "Frozen",
+    "harga": 90000,
+    "deskripsi": "1 ekor ayam kampung potongan 4 sudah diungkep bumbu kunyit jahe dan serundeng lengkuas, siap digoreng kapan saja.",
+    "foto": "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=800&q=80",
+    "varian": ["Serundeng Lengkuas", "Bumbu Kuning Klasik"],
+    "porsi": "Contoh: 1 ekor potong 4"
+  },
+  {
+    "id": "prod-08",
+    "nama": "Paru Goreng Rempah Beku 400g",
+    "kategori": "Frozen",
+    "harga": 80000,
+    "deskripsi": "Paru sapi rebus rempah ketumbar dan asam jawa, diiris tipis siap goreng hingga renyah garing.",
+    "foto": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80",
+    "varian": ["Renyah Garing", "Empuk Gurih"],
+    "porsi": "Contoh: Kemasan beku 400g"
+  },
+  {
+    "id": "prod-09",
+    "nama": "Sambal Cumi Asap Botol Kaca 200g",
+    "kategori": "Frozen",
+    "harga": 45000,
+    "deskripsi": "Sambal ulek bawang merah dan cabai rawit merah dengan potongan cumi asin asap gurih tanpa bahan pengawet kimia.",
+    "foto": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80",
+    "varian": ["Level 1 Pedas Gurih", "Level 2 Pedas Nampol"],
+    "porsi": "Contoh: Botol kaca 200g"
+  },
+  {
+    "id": "prod-10",
+    "nama": "Pastel Tutup Kentang Panggang Loyang",
+    "kategori": "Snack",
+    "harga": 60000,
+    "deskripsi": "Puree kentang mentega panggang bertabur keju dengan isian potongan ayam, wortel, jamur kuping, dan sohun gurih.",
+    "foto": "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=800&q=80",
+    "varian": ["Isian Daging Asap", "Isian Ayam Jamur"],
+    "porsi": "Contoh: Loyang 20x10 cm"
+  },
+  {
+    "id": "prod-11",
+    "nama": "Risoles Ragout Ayam Kampung (Isi 10)",
+    "kategori": "Snack",
+    "harga": 55000,
+    "deskripsi": "Kulit dadar lembut dibalut tepung roti renyah dengan isian ragout ayam kampung creamy susu dan potongan wortel dadu.",
+    "foto": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80",
+    "varian": ["Goreng Matang", "Frozen Siap Goreng"],
+    "porsi": "Contoh: Kotak isi 10 buah"
+  },
+  {
+    "id": "prod-12",
+    "nama": "Kue Lumpur Kentang Kismis (Isi 8)",
+    "kategori": "Snack",
+    "harga": 38000,
+    "deskripsi": "Kue basah tradisional bertekstur lembut lumer dari kentang kukus, santan gurih, dan topping kismis manis.",
+    "foto": "https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=800&q=80",
+    "porsi": "Contoh: Kotak isi 8 buah"
+  },
+  {
+    "id": "prod-13",
+    "nama": "Wedang Uwuh Seduh Dingin 1 Liter",
+    "kategori": "Minuman",
+    "harga": 35000,
+    "deskripsi": "Rebusan kayu secang, jahe merah bakar, cengkeh, kayu manis, dan serai disajikan dingin dengan pemanis gula batu.",
+    "foto": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+    "varian": ["Manis Ringan Gula Batu", "Manis Gula Aren Asli"],
+    "porsi": "Contoh: Botol siap minum 1 Liter"
+  },
+  {
+    "id": "prod-14",
+    "nama": "Beras Kencur Peras Segar 1 Liter",
+    "kategori": "Minuman",
+    "harga": 38000,
+    "deskripsi": "Minuman rimpang kencur segar peras dan tumbukan beras sangrai dengan sentuhan rasa asam jawa serta gula aren alami.",
+    "foto": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80",
+    "varian": ["Dingin Segar", "Suhu Ruang"],
+    "porsi": "Contoh: Botol kaca 1 Liter"
+  },
+  {
+    "id": "prod-15",
+    "nama": "Kunyit Asam Gula Jawa 1 Liter",
+    "kategori": "Minuman",
+    "harga": 35000,
+    "deskripsi": "Perasan kunyit empu segar dan sari asam jawa matang dimasak bersih dengan gula kelapa murni tanpa perisa buatan.",
+    "foto": "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80",
+    "varian": ["Manis Asam Segar", "Murni Tanpa Gula"],
+    "porsi": "Contoh: Botol kaca 1 Liter"
+  }
+]
