@@ -24,8 +24,8 @@ export default function CaraKerjaPage() {
             <span>Kembali ke Katalog Demo</span>
           </Link>
 
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--surface)] text-[var(--ink)]">
-            Panduan Edukatif & Alur Pemesanan
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[var(--surface)] text-[var(--ink)]">
+            Panduan Edukatif dan Alur Pemesanan
           </span>
 
           <h1 className="font-display font-bold text-3xl sm:text-5xl tracking-tight text-[var(--ink)]">
@@ -42,7 +42,7 @@ export default function CaraKerjaPage() {
           {/* Step 1 */}
           <div className="p-8 sm:p-10 rounded-3xl bg-[var(--surface)] grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-7 space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-[var(--accent)]">
+              <span className="text-xs font-bold text-[var(--accent)]">
                 Langkah 1
               </span>
               <h2 className="font-display text-2xl sm:text-3xl font-bold">
@@ -58,7 +58,7 @@ export default function CaraKerjaPage() {
               </ul>
             </div>
             <div className="md:col-span-5 flex justify-center">
-              <div className="w-56 h-48 rounded-2xl bg-[var(--bg)] p-4 flex flex-col justify-between shadow-sm">
+              <div className="w-56 h-48 rounded-2xl bg-[var(--bg)] p-4 flex flex-col justify-between">
                 <div className="space-y-2">
                   <div className="h-3 w-16 bg-[var(--accent)]/30 rounded" />
                   <div className="h-5 w-32 bg-[var(--ink)]/20 rounded" />
@@ -78,7 +78,7 @@ export default function CaraKerjaPage() {
           {/* Step 2 */}
           <div className="p-8 sm:p-10 rounded-3xl bg-[var(--surface)] grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-7 space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-[var(--accent)]">
+              <span className="text-xs font-bold text-[var(--accent)]">
                 Langkah 2
               </span>
               <h2 className="font-display text-2xl sm:text-3xl font-bold">
@@ -90,26 +90,26 @@ export default function CaraKerjaPage() {
               <ul className="text-xs sm:text-sm text-[var(--ink)] space-y-1.5 pt-2">
                 <li>• Atur kuantitas porsi langsung dengan tombol plus-minus</li>
                 <li>• Pilih varian sambal atau jenis kemasan frozen</li>
-                <li>• Live kalkulasi subtotal dan grand total rupiah yang akurat</li>
+                <li>• Kalkulasi subtotal dan grand total rupiah yang akurat</li>
               </ul>
             </div>
             <div className="md:col-span-5 flex justify-center">
-              <div className="w-56 h-48 rounded-2xl bg-[var(--bg)] p-4 flex flex-col justify-between shadow-sm">
-                <div className="flex justify-between items-center border-b border-[var(--surface)] pb-2">
+              <div className="w-56 h-48 rounded-2xl bg-[var(--bg)] p-4 flex flex-col justify-between">
+                <div className="flex justify-between items-center pb-2">
                   <span className="text-xs font-bold">Keranjang</span>
-                  <span className="text-[11px] text-[var(--muted)]">2 menu</span>
+                  <span className="text-xs text-[var(--muted)]">2 menu</span>
                 </div>
                 <div className="space-y-2 text-xs">
-                  <div className="flex justify-between text-[11px]">
+                  <div className="flex justify-between text-xs">
                     <span>Rendang Sapi 500g</span>
                     <span className="font-bold">135.000</span>
                   </div>
-                  <div className="flex justify-between text-[11px]">
+                  <div className="flex justify-between text-xs">
                     <span>Ayam Taliwang (1 Ekor)</span>
                     <span className="font-bold">85.000</span>
                   </div>
                 </div>
-                <div className="pt-2 border-t border-[var(--surface)] flex justify-between text-xs font-bold">
+                <div className="pt-2 flex justify-between text-xs font-bold">
                   <span>Total</span>
                   <span className="text-[var(--accent)]">Rp 220.000</span>
                 </div>
@@ -120,7 +120,7 @@ export default function CaraKerjaPage() {
           {/* Step 3 */}
           <div className="p-8 sm:p-10 rounded-3xl bg-[var(--surface)] grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-7 space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-[var(--accent)]">
+              <span className="text-xs font-bold text-[var(--accent)]">
                 Langkah 3
               </span>
               <h2 className="font-display text-2xl sm:text-3xl font-bold">
@@ -136,18 +136,18 @@ export default function CaraKerjaPage() {
               </ul>
             </div>
             <div className="md:col-span-5 flex justify-center">
-              <div className="w-56 h-48 rounded-2xl bg-emerald-800 text-white p-3.5 flex flex-col justify-between shadow-sm">
-                <div className="flex items-center gap-2 border-b border-white/20 pb-2">
+              <div className="w-56 h-48 rounded-2xl bg-emerald-800 text-white p-3.5 flex flex-col justify-between">
+                <div className="flex items-center gap-2 pb-2">
                   <div className="w-5 h-5 rounded-full bg-emerald-500" />
                   <span className="text-xs font-bold">Dapur Rempah WA</span>
                 </div>
-                <div className="p-2 rounded bg-emerald-900/60 text-[10px] space-y-1 leading-tight font-sans">
+                <div className="p-2 rounded bg-emerald-900/60 text-xs space-y-1 leading-tight font-sans">
                   <p className="text-emerald-200">Halo Dapur Rempah,</p>
                   <p>1. Rendang Sapi x1 = 135.000</p>
                   <p>2. Ayam Taliwang x1 = 85.000</p>
                   <p className="font-bold text-white pt-1">Total: Rp 220.000</p>
                 </div>
-                <div className="text-[10px] text-emerald-300 text-right">08.15 WIB ✓✓</div>
+                <div className="text-xs text-emerald-300 text-right">08.15 WIB Terkirim</div>
               </div>
             </div>
           </div>

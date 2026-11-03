@@ -21,3 +21,4 @@ export interface CartItem {
   selectedVariant?: string;
   quantity: number;
 }
+

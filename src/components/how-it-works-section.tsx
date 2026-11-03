@@ -67,14 +67,14 @@ export function HowItWorksSection() {
         </div>
 
         {/* Tinted Accordion Panels (Horizontal Desktop / Stacked Mobile) */}
-        <div className="flex flex-col lg:flex-row min-h-[460px] rounded-3xl overflow-hidden shadow-sm">
+        <div className="flex flex-col lg:flex-row min-h-[460px] rounded-3xl overflow-hidden">
           {STAGES.map((stage) => {
             const isActive = activeStageId === stage.id;
             return (
               <div
                 key={stage.id}
                 onClick={() => setActiveStageId(stage.id)}
-                className={`transition-all duration-500 cursor-pointer flex flex-col justify-between p-7 sm:p-9 ${
+                className={`transition-colors duration-300 cursor-pointer flex flex-col justify-between p-7 sm:p-9 ${
                   stage.bgClass
                 } ${stage.textClass} ${
                   isActive
@@ -83,7 +83,7 @@ export function HowItWorksSection() {
                 }`}
               >
                 <div>
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-white/15 mb-4">
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-white/15 mb-4">
                     {stage.tag}
                   </span>
                   <h3 className="font-display text-2xl sm:text-3xl font-bold leading-tight">
@@ -96,13 +96,13 @@ export function HowItWorksSection() {
                     {stage.summary}
                   </p>
                   {isActive && (
-                    <p className="text-xs sm:text-sm opacity-80 leading-relaxed pt-2 border-t border-white/20">
+                    <p className="text-xs sm:text-sm opacity-80 leading-relaxed pt-3">
                       {stage.detail}
                     </p>
                   )}
                 </div>
 
-                <div className="pt-6 mt-4 flex items-center justify-between border-t border-white/10 text-xs font-semibold opacity-75">
+                <div className="pt-6 mt-4 flex items-center justify-between text-xs font-semibold opacity-75">
                   <span>{isActive ? "Tahap Aktif" : "Klik untuk membaca detail"}</span>
                   <span className="text-base">{isActive ? "●" : "→"}</span>
                 </div>

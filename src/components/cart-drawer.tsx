@@ -40,6 +40,7 @@ export function CartDrawer() {
 
   return (
     <div
+      data-ui="cart-drawer"
       className="fixed inset-0 z-50 overflow-hidden"
       role="dialog"
       aria-modal="true"
@@ -47,15 +48,15 @@ export function CartDrawer() {
     >
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/40 transition-opacity backdrop-blur-none"
+        className="fixed inset-0 bg-black/40 transition-opacity"
         onClick={() => setIsCartOpen(false)}
       />
 
       {/* Drawer Panel */}
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-[var(--bg)] text-[var(--ink)] flex flex-col justify-between shadow-2xl">
+        <div className="w-screen max-w-md bg-[var(--bg)] text-[var(--ink)] flex flex-col justify-between">
           {/* Header */}
-          <div className="px-6 py-5 bg-[var(--surface)] flex items-center justify-between border-b border-[var(--surface-deep)]">
+          <div className="px-6 py-5 bg-[var(--surface)] flex items-center justify-between">
             <div>
               <h2 className="font-display text-xl font-bold text-[var(--ink)]">
                 Keranjang Pesanan
@@ -157,7 +158,7 @@ export function CartDrawer() {
 
           {/* Footer & Checkout Action */}
           {items.length > 0 && (
-            <div className="p-6 bg-[var(--surface)] border-t border-[var(--surface-deep)] space-y-4">
+            <div className="p-6 bg-[var(--surface)] space-y-4">
               <div className="flex items-center justify-between text-base">
                 <span className="font-medium text-[var(--muted)]">Total Pembayaran:</span>
                 <span className="tabular-numbers font-display text-2xl font-bold text-[var(--ink)]">
@@ -166,17 +167,17 @@ export function CartDrawer() {
               </div>
 
               {/* Collapsible WhatsApp Text Preview for Demo Transparency */}
-              <div className="border border-[var(--surface-deep)] rounded-xl p-3 bg-[var(--bg)]">
+              <div className="rounded-xl p-3 bg-[var(--bg)]">
                 <button
                   type="button"
                   onClick={() => setShowWaPreview(!showWaPreview)}
                   className="w-full flex items-center justify-between text-xs font-semibold text-[var(--muted)] hover:text-[var(--ink)]"
                 >
                   <span>Format Pesan Otomatis WhatsApp</span>
-                  <span>{showWaPreview ? "Tutup ▲" : "Lihat Format ▼"}</span>
+                  <span>{showWaPreview ? "Sembunyikan" : "Lihat Format"}</span>
                 </button>
                 {showWaPreview && (
-                  <pre className="mt-2.5 p-2 bg-[var(--surface)] rounded text-[11px] text-[var(--ink)] whitespace-pre-wrap font-sans overflow-x-auto leading-relaxed border-none">
+                  <pre className="mt-2.5 p-2 bg-[var(--surface)] rounded text-[11px] text-[var(--ink)] whitespace-pre-wrap font-sans overflow-x-auto leading-relaxed">
                     {waPreviewMessage}
                   </pre>
                 )}

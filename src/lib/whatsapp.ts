@@ -82,3 +82,4 @@ export function buildNalarSalesWaUrl(): string {
     "Halo Nalar Solusi Digital, saya telah mencoba demo Dapur Rempah Nusantara dan tertarik untuk membuat Katalog Digital + Order WhatsApp serupa untuk bisnis saya.";
   return `https://wa.me/${NALAR_WA_NUMBER}?text=${encodeURIComponent(text)}`;
 }
+

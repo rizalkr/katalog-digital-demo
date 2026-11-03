@@ -65,6 +65,7 @@ export function ProductDetailModal({
 
   return (
     <div
+      data-ui="product-modal"
       className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 sm:p-6"
       role="dialog"
       aria-modal="true"
@@ -77,12 +78,12 @@ export function ProductDetailModal({
       />
 
       {/* Modal Card */}
-      <div className="relative w-full max-w-xl bg-[var(--bg)] text-[var(--ink)] rounded-3xl overflow-hidden shadow-2xl z-10 border border-[var(--surface-deep)]">
+      <div className="relative w-full max-w-xl bg-[var(--bg)] text-[var(--ink)] rounded-3xl overflow-hidden z-10">
         {/* Close Button */}
         <button
           type="button"
           onClick={onClose}
-          className="touch-control absolute top-4 right-4 z-20 p-2.5 rounded-full bg-[var(--bg)]/90 text-[var(--ink)] hover:bg-[var(--surface)] transition-colors shadow-sm"
+          className="touch-control absolute top-4 right-4 z-20 p-2.5 rounded-full bg-[var(--bg)]/90 text-[var(--ink)] hover:bg-[var(--surface)] transition-colors"
           aria-label="Tutup jendela detail"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -126,8 +127,8 @@ export function ProductDetailModal({
           {/* Variant Selector */}
           {product.varian && product.varian.length > 0 && (
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-[var(--muted)]">
-                Pilih Varian
+              <label className="text-xs font-bold text-[var(--muted)]">
+                Pilihan Varian
               </label>
               <div className="flex flex-wrap gap-2">
                 {product.varian.map((variant) => {
@@ -137,7 +138,7 @@ export function ProductDetailModal({
                       key={variant}
                       type="button"
                       onClick={() => setSelectedVariant(variant)}
-                      className={`touch-control px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                      className={`touch-control px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-colors ${
                         isSelected
                           ? "bg-[var(--accent)] text-[var(--accent-ink)]"
                           : "bg-[var(--surface)] text-[var(--ink)] hover:bg-[var(--surface-deep)]"
@@ -152,10 +153,10 @@ export function ProductDetailModal({
           )}
 
           {/* Quantity Selector & Live Subtotal */}
-          <div className="flex items-center justify-between pt-2 border-t border-[var(--surface)]">
+          <div className="flex items-center justify-between pt-4 bg-[var(--surface)] p-4 rounded-2xl">
             <span className="text-sm font-semibold text-[var(--muted)]">Jumlah Pesan:</span>
             <div className="flex items-center gap-3">
-              <div className="flex items-center bg-[var(--surface)] rounded-xl p-1">
+              <div className="flex items-center bg-[var(--bg)] rounded-xl p-1">
                 <button
                   type="button"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -189,11 +190,11 @@ export function ProductDetailModal({
               onClick={() => setShowWaPreview(!showWaPreview)}
               className="w-full flex items-center justify-between font-semibold text-[var(--muted)] hover:text-[var(--ink)]"
             >
-              <span>Pratinjau Pesan WhatsApp Otomatis</span>
-              <span>{showWaPreview ? "Sembunyikan ▲" : "Lihat Format ▼"}</span>
+              <span>Format Pesan Otomatis WhatsApp</span>
+              <span>{showWaPreview ? "Sembunyikan" : "Lihat Format"}</span>
             </button>
             {showWaPreview && (
-              <pre className="mt-2 p-2.5 bg-[var(--bg)] rounded-lg text-[11px] text-[var(--ink)] whitespace-pre-wrap font-sans leading-relaxed border-none">
+              <pre className="mt-2 p-2.5 bg-[var(--bg)] rounded-lg text-xs text-[var(--ink)] whitespace-pre-wrap font-sans leading-relaxed">
                 {waPreviewText}
               </pre>
             )}
