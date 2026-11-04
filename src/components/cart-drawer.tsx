@@ -61,10 +61,10 @@ export function CartDrawer() {
       />
 
       {/* Drawer Panel */}
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-6 sm:pl-10">
-        <div className="w-screen max-w-md h-full bg-[var(--bg)] text-[var(--ink)] flex flex-col justify-between relative z-10">
-          {/* Header */}
-          <div className="px-6 py-5 bg-[var(--surface)] flex items-center justify-between">
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
+        <div className="w-screen max-w-md h-[100dvh] max-h-[100dvh] bg-[var(--bg)] text-[var(--ink)] flex flex-col justify-between relative z-10">
+          {/* Header (Fixed at top, never shrinks) */}
+          <div className="flex-shrink-0 px-5 sm:px-6 py-4 sm:py-5 bg-[var(--surface)] flex items-center justify-between">
             <div>
               <h2 className="font-display text-xl font-bold text-[var(--ink)]">
                 Keranjang Pesanan
@@ -85,8 +85,8 @@ export function CartDrawer() {
             </button>
           </div>
 
-          {/* Item List */}
-          <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4 min-h-0">
+          {/* Item List (Scrolls smoothly in remaining vertical space) */}
+          <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4 space-y-3 sm:space-y-4 min-h-0 overscroll-contain">
             {items.length === 0 ? (
               <div className="text-center py-16 px-4">
                 <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-[var(--surface)] flex items-center justify-center text-[var(--muted)]">
@@ -171,18 +171,18 @@ export function CartDrawer() {
             )}
           </div>
 
-          {/* Footer & Checkout Action */}
+          {/* Footer & Checkout Action (Pinned to viewport bottom with safe area, never cut off) */}
           {items.length > 0 && (
-            <div className="p-6 bg-[var(--surface)] space-y-4">
+            <div className="flex-shrink-0 p-4 sm:p-6 bg-[var(--surface)] space-y-3 sm:space-y-4 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))]">
               <div className="flex items-center justify-between text-base">
-                <span className="font-medium text-[var(--muted)]">Total Pembayaran:</span>
-                <span className="tabular-numbers font-display text-2xl font-bold text-[var(--ink)]">
+                <span className="font-medium text-xs sm:text-sm text-[var(--muted)]">Total Pembayaran:</span>
+                <span className="tabular-numbers font-display text-xl sm:text-2xl font-bold text-[var(--ink)]">
                   {formatRupiah(totalAmount)}
                 </span>
               </div>
 
               {/* Collapsible WhatsApp Text Preview for Demo Transparency */}
-              <div className="rounded-xl p-3 bg-[var(--bg)]">
+              <div className="rounded-xl p-2.5 sm:p-3 bg-[var(--bg)]">
                 <button
                   type="button"
                   onClick={() => setShowWaPreview(!showWaPreview)}
@@ -192,7 +192,7 @@ export function CartDrawer() {
                   <span>{showWaPreview ? "Sembunyikan" : "Lihat Format"}</span>
                 </button>
                 {showWaPreview && (
-                  <pre className="mt-2.5 p-2 bg-[var(--surface)] rounded text-xs text-[var(--ink)] whitespace-pre-wrap font-sans overflow-x-auto leading-relaxed">
+                  <pre className="mt-2 p-2 bg-[var(--surface)] rounded text-xs text-[var(--ink)] whitespace-pre-wrap font-sans max-h-36 overflow-y-auto leading-relaxed">
                     {waPreviewMessage}
                   </pre>
                 )}
@@ -203,9 +203,9 @@ export function CartDrawer() {
                   href={checkoutWaUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="touch-control w-full py-3.5 px-4 rounded-xl bg-[var(--accent)] text-[var(--accent-ink)] font-semibold text-center text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-opacity"
+                  className="touch-control w-full py-3.5 px-4 rounded-xl bg-[var(--accent)] text-[var(--accent-ink)] font-bold text-center text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-opacity"
                 >
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 fill-current flex-shrink-0" viewBox="0 0 24 24">
                     <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z" />
                   </svg>
                   <span>Checkout via WhatsApp</span>
@@ -214,7 +214,7 @@ export function CartDrawer() {
                 <button
                   type="button"
                   onClick={clearCart}
-                  className="w-full py-2 text-xs font-medium text-[var(--muted)] hover:text-[var(--ink)] transition-colors"
+                  className="w-full py-1 text-xs font-medium text-[var(--muted)] hover:text-[var(--ink)] transition-colors"
                 >
                   Kosongkan Keranjang
                 </button>
