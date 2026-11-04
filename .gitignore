@@ -33,6 +33,7 @@ yarn-error.log*
 # Operating System & IDE
 .DS_Store
 *.pem
+*.tsbuildinfo
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json

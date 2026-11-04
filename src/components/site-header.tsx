@@ -6,10 +6,10 @@ import { useCart } from "@/context/cart-context";
 import { formatRupiah } from "@/lib/whatsapp";
 
 export function SiteHeader() {
-  const { totalCount, totalAmount, setIsCartOpen } = useCart();
+  const { totalCount, totalAmount, setIsCartOpen, isBadgeBouncing } = useCart();
 
   return (
-    <header className="w-full bg-[var(--bg)] sticky top-[39px] sm:top-[41px] z-40 transition-colors">
+    <header className="w-full bg-[var(--bg)] transition-colors">
       <div className="site-wrap flex items-center justify-between h-16 sm:h-20">
         {/* Brand Wordmark */}
         <Link href="/" className="group flex flex-col justify-center">
@@ -45,6 +45,7 @@ export function SiteHeader() {
 
         {/* Primary Action: Cart Drawer Trigger */}
         <button
+          id="header-cart-btn"
           type="button"
           onClick={() => setIsCartOpen(true)}
           className="touch-control relative flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-xs sm:text-sm font-semibold hover:opacity-95 transition-opacity"
@@ -61,7 +62,11 @@ export function SiteHeader() {
             <path d="M3 3h3" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           <span className="font-bold">Keranjang</span>
-          <span className="tabular-numbers px-2 py-0.5 rounded-full bg-white/20 text-xs font-bold">
+          <span
+            className={`tabular-numbers px-2 py-0.5 rounded-full bg-white/20 text-xs font-bold inline-block ${
+              isBadgeBouncing ? "badge-pulse" : ""
+            }`}
+          >
             {totalCount}
           </span>
           {totalAmount > 0 && (

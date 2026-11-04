@@ -18,7 +18,7 @@ export function ProductDetailModal({
   product,
   onClose,
 }: ProductDetailModalProps) {
-  const { addItem } = useCart();
+  const { addItem, animateFlyToCart } = useCart();
   const [selectedVariant, setSelectedVariant] = useState<string | undefined>(
     undefined
   );
@@ -58,7 +58,12 @@ export function ProductDetailModal({
     selectedVariant
   );
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    animateFlyToCart(
+      { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 },
+      product.foto
+    );
     addItem(product, quantity, selectedVariant);
     onClose();
   };

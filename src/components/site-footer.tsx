@@ -6,7 +6,7 @@ export function SiteFooter() {
   const nalarWaUrl = buildNalarSalesWaUrl();
 
   return (
-    <footer className="w-full bg-[var(--field-1)] text-[var(--field-1-ink)] py-16 sm:py-24">
+    <footer className="w-full bg-[var(--field-1)] text-[var(--field-1-ink)] py-16 sm:py-24 pb-28 sm:pb-24">
       <div className="site-wrap space-y-16">
         {/* The Mark, Built Large: Block construction wordmark */}
         <div className="w-full">

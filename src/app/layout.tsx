@@ -5,6 +5,7 @@ import { CartProvider } from "@/context/cart-context";
 import { DemoBanner } from "@/components/demo-banner";
 import { SiteHeader } from "@/components/site-header";
 import { CartDrawer } from "@/components/cart-drawer";
+import { FloatingCartButton } from "@/components/floating-cart-button";
 import { SiteFooter } from "@/components/site-footer";
 
 const leagueSpartan = League_Spartan({
@@ -37,10 +38,14 @@ export default function RootLayout({
       <body className="antialiased min-h-[100dvh] flex flex-col justify-between">
         <CartProvider>
           <div>
-            <DemoBanner />
-            <SiteHeader />
+            {/* Unified Sticky Header Container */}
+            <div className="sticky top-0 z-40 w-full">
+              <DemoBanner />
+              <SiteHeader />
+            </div>
             <main>{children}</main>
           </div>
+          <FloatingCartButton />
           <CartDrawer />
           <SiteFooter />
         </CartProvider>

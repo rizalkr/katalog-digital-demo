@@ -19,10 +19,15 @@ const CATEGORIES: ("Semua" | ProductCategory)[] = [
 ];
 
 export function CatalogSection({ products }: CatalogSectionProps) {
-  const { addItem } = useCart();
+  const { addItem, animateFlyToCart } = useCart();
   const [selectedCategory, setSelectedCategory] = useState<"Semua" | ProductCategory>("Semua");
   const [searchQuery, setSearchQuery] = useState("");
   const [activeModalProduct, setActiveModalProduct] = useState<Product | null>(null);
+
+  const handleQuickAdd = (product: Product, el: HTMLElement) => {
+    animateFlyToCart(el, product.foto);
+    addItem(product, 1, product.varian ? product.varian[0] : undefined);
+  };
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
@@ -169,7 +174,7 @@ export function CatalogSection({ products }: CatalogSectionProps) {
                       key={product.id}
                       product={product}
                       onSelect={() => setActiveModalProduct(product)}
-                      onQuickAdd={() => addItem(product, 1)}
+                      onQuickAdd={(el) => handleQuickAdd(product, el)}
                     />
                   ))}
                 </div>
@@ -184,7 +189,7 @@ export function CatalogSection({ products }: CatalogSectionProps) {
                 key={product.id}
                 product={product}
                 onSelect={() => setActiveModalProduct(product)}
-                onQuickAdd={() => addItem(product, 1)}
+                onQuickAdd={(el) => handleQuickAdd(product, el)}
               />
             ))}
           </div>
@@ -203,7 +208,7 @@ export function CatalogSection({ products }: CatalogSectionProps) {
 interface ProductRowProps {
   product: Product;
   onSelect: () => void;
-  onQuickAdd: () => void;
+  onQuickAdd: (el: HTMLElement) => void;
 }
 
 function ProductRow({ product, onSelect, onQuickAdd }: ProductRowProps) {
@@ -262,7 +267,7 @@ function ProductRow({ product, onSelect, onQuickAdd }: ProductRowProps) {
           </button>
           <button
             type="button"
-            onClick={onQuickAdd}
+            onClick={(e) => onQuickAdd(e.currentTarget)}
             className="touch-control px-4 py-2 rounded-full bg-[var(--ink)] text-[var(--bg)] text-xs font-semibold hover:opacity-90 transition-opacity flex items-center gap-1.5"
             aria-label={`Tambah ${product.nama} ke keranjang`}
           >

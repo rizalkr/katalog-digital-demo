@@ -38,23 +38,31 @@ export function CartDrawer() {
   const checkoutWaUrl = buildCartCheckoutWaUrl(items);
   const waPreviewMessage = buildCartCheckoutWaMessage(items);
 
+  const handleStartShopping = () => {
+    setIsCartOpen(false);
+    const catalogElement = document.getElementById("katalog");
+    if (catalogElement) {
+      catalogElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div
       data-ui="cart-drawer"
-      className="fixed inset-0 z-50 overflow-hidden"
+      className="fixed inset-0 z-[100] overflow-hidden"
       role="dialog"
       aria-modal="true"
       aria-label="Keranjang Pesanan Dapur Rempah"
     >
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/40 transition-opacity"
+        className="fixed inset-0 bg-black/45 transition-opacity"
         onClick={() => setIsCartOpen(false)}
       />
 
       {/* Drawer Panel */}
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-[var(--bg)] text-[var(--ink)] flex flex-col justify-between">
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-6 sm:pl-10">
+        <div className="w-screen max-w-md h-full bg-[var(--bg)] text-[var(--ink)] flex flex-col justify-between relative z-10">
           {/* Header */}
           <div className="px-6 py-5 bg-[var(--surface)] flex items-center justify-between">
             <div>
@@ -78,18 +86,25 @@ export function CartDrawer() {
           </div>
 
           {/* Item List */}
-          <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
+          <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4 min-h-0">
             {items.length === 0 ? (
-              <div className="text-center py-16">
+              <div className="text-center py-16 px-4">
                 <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-[var(--surface)] flex items-center justify-center text-[var(--muted)]">
                   <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                   </svg>
                 </div>
                 <h3 className="font-display text-lg font-bold">Keranjang Masih Kosong</h3>
-                <p className="text-sm text-[var(--muted)] mt-1 max-w-[28ch] mx-auto">
-                  Pilih menu katering atau lauk frozen favorit Anda di katalog.
+                <p className="text-sm text-[var(--muted)] mt-1 max-w-[28ch] mx-auto leading-relaxed">
+                  Pilih menu katering atau lauk frozen favorit Anda di katalog hidangan.
                 </p>
+                <button
+                  type="button"
+                  onClick={handleStartShopping}
+                  className="touch-control mt-6 px-6 py-2.5 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-xs font-bold hover:opacity-95 transition-opacity"
+                >
+                  Mulai Pilih Menu
+                </button>
               </div>
             ) : (
               items.map((item) => (
@@ -118,7 +133,7 @@ export function CartDrawer() {
                     </div>
 
                     {item.selectedVariant && (
-                      <span className="inline-block text-[11px] font-medium text-[var(--accent)] mt-0.5">
+                      <span className="inline-block text-xs font-medium text-[var(--accent)] mt-0.5">
                         Varian: {item.selectedVariant}
                       </span>
                     )}
@@ -177,7 +192,7 @@ export function CartDrawer() {
                   <span>{showWaPreview ? "Sembunyikan" : "Lihat Format"}</span>
                 </button>
                 {showWaPreview && (
-                  <pre className="mt-2.5 p-2 bg-[var(--surface)] rounded text-[11px] text-[var(--ink)] whitespace-pre-wrap font-sans overflow-x-auto leading-relaxed">
+                  <pre className="mt-2.5 p-2 bg-[var(--surface)] rounded text-xs text-[var(--ink)] whitespace-pre-wrap font-sans overflow-x-auto leading-relaxed">
                     {waPreviewMessage}
                   </pre>
                 )}
