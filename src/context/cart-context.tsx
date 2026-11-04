@@ -121,42 +121,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       startY = rect.top + rect.height / 2;
     }
 
-    // Determine target coordinates (dynamic target)
-    // On mobile screens, always prioritize the bottom cart bar (floating-cart-btn)
-    const isMobile = window.innerWidth < 640;
-    let targetEl: HTMLElement | null = null;
-
-    if (isMobile) {
-      targetEl = document.getElementById("floating-cart-btn");
-      if (!targetEl) {
-        targetEl = document.getElementById("header-cart-btn");
-      }
-    } else {
-      const floatingBtn = document.getElementById("floating-cart-btn");
-      const floatingRect = floatingBtn?.getBoundingClientRect();
-      const isFloatingVisible =
-        floatingBtn &&
-        floatingRect &&
-        floatingRect.width > 0 &&
-        floatingRect.top < window.innerHeight;
-
-      if (window.scrollY >= 120 && isFloatingVisible) {
-        targetEl = floatingBtn;
-      } else {
-        targetEl = document.getElementById("header-cart-btn");
-      }
-    }
-
+    // Target is ALWAYS the sticky header cart button at the top
+    const targetEl = document.getElementById("header-cart-btn");
     const targetRect = targetEl?.getBoundingClientRect();
+
     const endX = targetRect
       ? targetRect.left + targetRect.width / 2
-      : isMobile
-      ? window.innerWidth / 2
       : window.innerWidth - 60;
     const endY = targetRect
       ? targetRect.top + targetRect.height / 2
-      : isMobile
-      ? window.innerHeight - 40
       : 50;
 
     // Create flying thumbnail clone
@@ -180,21 +153,19 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
     document.body.appendChild(flyer);
 
-    // Calculate dynamic arc trajectory
+    // Calculate upward arc trajectory towards the header cart
     const dx = endX - startX;
     const dy = endY - startY;
-    const isDownward = dy > 0;
 
-    // Apex lift for a natural parabolic toss
-    const apexLift = isDownward ? 45 : 70;
-    const apexY = Math.min(startY, endY) - apexLift;
-    const apexX = startX + dx * 0.35;
+    // Parabolic arc: curve gracefully outward and slightly higher before diving into the header cart
+    const apexLift = Math.min(60, Math.max(25, Math.abs(dy) * 0.12));
+    const apexY = Math.max(12, Math.min(startY, endY) - apexLift);
+    const apexX = startX + dx * 0.42;
 
-    // Intermediate descent point
-    const descentX = startX + dx * 0.72;
-    const descentY = startY + dy * 0.65;
+    const descentX = startX + dx * 0.78;
+    const descentY = startY + dy * 0.72;
 
-    // Animate using Web Animations API with comfortable 960ms pacing
+    // Animate using Web Animations API with comfortable 920ms pacing
     const animation = flyer.animate(
       [
         {
@@ -205,12 +176,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         {
           transform: `translate(${apexX - 27}px, ${apexY - 27}px) scale(1.08)`,
           opacity: 1,
-          offset: 0.3,
+          offset: 0.32,
         },
         {
-          transform: `translate(${descentX - 27}px, ${descentY - 27}px) scale(0.8)`,
+          transform: `translate(${descentX - 27}px, ${descentY - 27}px) scale(0.75)`,
           opacity: 0.95,
-          offset: 0.68,
+          offset: 0.7,
         },
         {
           transform: `translate(${endX - 27}px, ${endY - 27}px) scale(0.3)`,
@@ -219,7 +190,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         },
       ],
       {
-        duration: 960,
+        duration: 920,
         easing: "cubic-bezier(0.22, 1, 0.36, 1)",
         fill: "forwards",
       }

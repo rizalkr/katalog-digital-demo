@@ -5,7 +5,6 @@ import { CartProvider } from "@/context/cart-context";
 import { DemoBanner } from "@/components/demo-banner";
 import { SiteHeader } from "@/components/site-header";
 import { CartDrawer } from "@/components/cart-drawer";
-import { FloatingCartButton } from "@/components/floating-cart-button";
 import { SiteFooter } from "@/components/site-footer";
 
 const leagueSpartan = League_Spartan({
@@ -45,7 +44,6 @@ export default function RootLayout({
             </div>
             <main>{children}</main>
           </div>
-          <FloatingCartButton />
           <CartDrawer />
           <SiteFooter />
         </CartProvider>
